@@ -14,24 +14,34 @@ HTML, CSS, JavaScript만 사용하며 별도 빌드 도구 없이 바로 열 수
 
 ## 프로젝트 구조
 
+저장소 루트(`hsh92/pr`) 기준입니다.
+
 ```
-pr/
+.
 ├── index.html    # 페이지 마크업
 ├── styles.css    # 스타일 (CSS 변수, 라이트 팔레트)
 ├── script.js     # 등장 애니메이션, 커피챗 링크 처리
 ├── run.bat       # Windows에서 브라우저로 바로 열기
+├── .gitignore
 └── README.md
 ```
 
 ## 로컬에서 실행
 
+### 저장소 받기
+
+```bash
+git clone https://github.com/hsh92/pr.git
+cd pr
+```
+
 ### Windows
 
 1. **`run.bat` 더블클릭** — 기본 브라우저에서 `index.html` 실행
 2. 또는 **`index.html` 더블클릭**
-3. PowerShell / CMD:
+3. PowerShell / CMD (클론한 폴더에서):
    ```powershell
-   Start-Process "C:\WorkSpace\Cursor\pr\index.html"
+   Start-Process "./index.html"
    ```
 
 ### Live Server (선택)
@@ -89,13 +99,25 @@ Pretendard 등 웹폰트를 쓰려면 `index.html` `<head>`에 CDN 링크를 추
 
 ## 배포
 
-정적 파일만 있으므로 아래 중 하나로 배포할 수 있습니다.
+### GitHub Pages (현재 배포)
 
-- [GitHub Pages](https://pages.github.com/)
-- [Netlify](https://www.netlify.com/) — 폴더 드래그 앤 드롭
-- [Vercel](https://vercel.com/) — Static Site
+| 항목 | 값 |
+|------|-----|
+| 사이트 | https://hsh92.github.io/pr/ |
+| 브랜치 | `master` |
+| 경로 | `/` (저장소 루트) |
 
-루트에 `index.html`이 있으면 대부분의 호스팅에서 그대로 동작합니다.
+변경 사항을 올리면 Pages가 자동으로 다시 빌드됩니다.
+
+```bash
+git add .
+git commit -m "변경 내용 설명"
+git push origin master
+```
+
+### 기타 호스팅
+
+정적 파일만 있으므로 [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/) 등에도 배포할 수 있습니다. 루트의 `index.html`을 진입점으로 두면 됩니다.
 
 ## 기술 스택
 
